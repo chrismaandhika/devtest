@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: OAuth2API
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+jwt:
+  access-token:
+    hour-to-live: 1
+  refresh-token:
+    hour-to-live: 3
+
+token:
+  url: http://localhost:${server.port}/token

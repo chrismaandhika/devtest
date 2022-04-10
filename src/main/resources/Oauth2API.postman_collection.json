@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "10f32b9e-a74f-48e4-92ac-5cbb370f5d26",
+		"name": "Oauth2API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/token?grant_type=password&username=super_user&password=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "super_user"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contacts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NTA4NzM2LCJpc19yZWZyZXNoX3Rva2VuIjoiZmFsc2UiLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiZXhwIjoxNjQ5NTEyMzM2fQ.dIWI_NGqGLm-5O1EKZPodlMfyanLpyYf5wlHzmVmCzd_TUoH5oD7nXD309X5rQv48QgDI-_hT6BPPlm8VMNnNI3iVqoWyXFASYzaKo_Se5HsUN4aQzZuCXg_B_WTcoPhcvMj5QdWExK2YwH7_Pz-tRpr5w9qeI9_8i0GyiUNRh4DQ-5IPwH7x0S2LR3fJjW7rigJo-_9NCy8GH0OyoOzAq15IYQjFYRT_81e050r2NpU_SfWj7fuQxGMpcUq5ypD3IZjSU7B8DnCiBw2GFVPOoBxd6ZuHVl5c_LDfN7vfB2OZ-8GwIJ-NRunBNrfD2UkY_kRassg56yNXOGHz4ty9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/phone_contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"phone_contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Contact",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NDYzNTgzLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiaXNfcmVmcmVzaF90b2tlbiI6ImZhbHNlIiwiZXhwIjoxNjQ5NDY3MTgzfQ.QNaspgvHBSb39Pd5Wh62rbc4Kcm7YX8y2yT_Uh8JEUBTPQH1BseE_ozat-2W_C4vNiebazraOdmZcjBf5zfJB7DHQu6bSxedDRDB56y4IGeX_3IA_OdstX3wzsrEA9TIlc-1u4Ah5BC_uVHG5lJQe7OUXF2UEqOPZP1uiFA2rq_U5mQmjXMttSbqfCe9Hzzq_5Pw2AxrpvrzxwUUzPjgXZkSMmOfVmL7tubxy3lHfvRkQJP2GpU0GJnrFMJhw3YFAixMyAfWCqA-vr4NIlfiSQ0Ipdioefo-9YGx08IhbY93rgEXm7hol5pscKZWacbE7uZFptvPh7Y8KAGAp37ikg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"from super user one\",\r\n    \"phone\": \"081255223341\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/phone_contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"phone_contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Contact",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NDYzNTgzLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiaXNfcmVmcmVzaF90b2tlbiI6ImZhbHNlIiwiZXhwIjoxNjQ5NDY3MTgzfQ.QNaspgvHBSb39Pd5Wh62rbc4Kcm7YX8y2yT_Uh8JEUBTPQH1BseE_ozat-2W_C4vNiebazraOdmZcjBf5zfJB7DHQu6bSxedDRDB56y4IGeX_3IA_OdstX3wzsrEA9TIlc-1u4Ah5BC_uVHG5lJQe7OUXF2UEqOPZP1uiFA2rq_U5mQmjXMttSbqfCe9Hzzq_5Pw2AxrpvrzxwUUzPjgXZkSMmOfVmL7tubxy3lHfvRkQJP2GpU0GJnrFMJhw3YFAixMyAfWCqA-vr4NIlfiSQ0Ipdioefo-9YGx08IhbY93rgEXm7hol5pscKZWacbE7uZFptvPh7Y8KAGAp37ikg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currentName\": \"from normal user\",\r\n    \"currentPhone\": \"081211223341\",\r\n    \"newName\": \"from normal user edited\",\r\n    \"newPhone\": \"0812112233414\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/phone_contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"phone_contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Contact",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NDYzNTgzLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiaXNfcmVmcmVzaF90b2tlbiI6ImZhbHNlIiwiZXhwIjoxNjQ5NDY3MTgzfQ.QNaspgvHBSb39Pd5Wh62rbc4Kcm7YX8y2yT_Uh8JEUBTPQH1BseE_ozat-2W_C4vNiebazraOdmZcjBf5zfJB7DHQu6bSxedDRDB56y4IGeX_3IA_OdstX3wzsrEA9TIlc-1u4Ah5BC_uVHG5lJQe7OUXF2UEqOPZP1uiFA2rq_U5mQmjXMttSbqfCe9Hzzq_5Pw2AxrpvrzxwUUzPjgXZkSMmOfVmL7tubxy3lHfvRkQJP2GpU0GJnrFMJhw3YFAixMyAfWCqA-vr4NIlfiSQ0Ipdioefo-9YGx08IhbY93rgEXm7hol5pscKZWacbE7uZFptvPh7Y8KAGAp37ikg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"from super user one\",\r\n        \"phone\": \"081255223341\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/phone_contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"phone_contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/token?grant_type=refresh_token&refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NTA4MzkwLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiaXNfcmVmcmVzaF90b2tlbiI6InRydWUiLCJleHAiOjE2NDk1MTkxOTAsInVzZXJuYW1lIjoic3VwZXJfdXNlciJ9.O4Tl3sSb06rQGXBhkKbSmJDCOrwaMVXkCk4zpuBXsXt_YTiJ5mq5DukOGNdrJP2XPy7ti0JrSF3tl-JgDaHJ93JITRJgxAkZrCtaqjjI7IEXlyZighn_iirR1_7W5UDZIKWcZi26Ft2l52KWJqKXKeJ6czrYcsLhPTrMrwpbJxURV63oSqSZhccC6r3jcWZUYFyCW_-lQruCQ0ipydUN23Wg5oqyk3mGemuddqitZOR2JBXjDF3grsDy6HkFm7MyKcgjIccrZWB4pGFbw7bT5lTSyns2bAq7Tcs03lNAzuJzUds2v9kGVSV-YD5merNoEkyYha5yc_bWwTNRughmgA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlcl91c2VyIiwibmJmIjoxNjQ5NTA4MzkwLCJzY29wZSI6InJlYWQgd3JpdGUgZGVsZXRlIiwiaXNfcmVmcmVzaF90b2tlbiI6InRydWUiLCJleHAiOjE2NDk1MTkxOTAsInVzZXJuYW1lIjoic3VwZXJfdXNlciJ9.O4Tl3sSb06rQGXBhkKbSmJDCOrwaMVXkCk4zpuBXsXt_YTiJ5mq5DukOGNdrJP2XPy7ti0JrSF3tl-JgDaHJ93JITRJgxAkZrCtaqjjI7IEXlyZighn_iirR1_7W5UDZIKWcZi26Ft2l52KWJqKXKeJ6czrYcsLhPTrMrwpbJxURV63oSqSZhccC6r3jcWZUYFyCW_-lQruCQ0ipydUN23Wg5oqyk3mGemuddqitZOR2JBXjDF3grsDy6HkFm7MyKcgjIccrZWB4pGFbw7bT5lTSyns2bAq7Tcs03lNAzuJzUds2v9kGVSV-YD5merNoEkyYha5yc_bWwTNRughmgA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
