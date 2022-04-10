@@ -1,21 +1,10 @@
-Prerequisite
-------------
+Prerequisite to Run
+-------------------
 - Java 11 has already installed.
 
 - Maven has already installed.
 
 - PostgreSQL database has already created and initiated with tables in oauth2api/src/main/resources/oauth2api_db_init.sql
-
-
-Staircase Test
---------------
-Staircase code is in path oauth2api/src/main/java/com/chrisma/devtest/staircase.
-
-To run Staircase code, go to oauth2api/src/main/java
-
-replace <n> with desired value in the command below, then run it.
-java -cp . com/chrisma/devtest/staircase/StaircasePrinter <n>
-
 
 Rest API Test
 -------------
@@ -36,17 +25,18 @@ DELETE /phone_contacts     -- to delete a contact that is owned by a user inferr
 
 To run the API, first go to oauth2api/, then run mvn clean package.
 The command will build a jar, oauth2api-1.0.jar inside oauth2api/target/.
-
 If you prefer to run it from other directory, then copy the jar into the desired directory.
-Then in the directory where the jar resided, replace the command below with correct values according to your PostgreSQL setup:
 
-java -jar oauth2api-1.0.jar --keystore.path=keystore.jks --keystore.password=password --keystore.key.alias=jwtkeypair --spring.datasource.url=jdbc:postgresql://<db_host>:<db_port>/<db_name> --spring.datasource.username=<db_username> --spring.datasource.password=<db_password>
+Then in the directory where the jar resided, replace the command below with correct values according to your PostgreSQL setup:
+java -jar oauth2api-1.0.jar --keystore.path=keystore.jks --keystore.password=password --keystore.key.alias=jwtkeypair --spring.datasource.url=jdbc:postgresql://<db_host>:<db_port>/<db_name> --spring.datasource.username=<db_username> --spring.datasource.password=<db_password> --token.url=<token_url> --server.port=<port>
 
 for example:
-java -jar oauth2api-1.0.jar --keystore.path=keystore.jks --keystore.password=password --keystore.key.alias=jwtkeypair --spring.datasource.url=jdbc:postgresql://localhost:5432/oauth2api --spring.datasource.username=oauth2api --spring.datasource.password=password
+java -jar oauth2api-1.0.jar --keystore.path=keystore.jks --keystore.password=password --keystore.key.alias=jwtkeypair --spring.datasource.url=jdbc:postgresql://localhost:5432/oauth2api --spring.datasource.username=oauth2api --spring.datasource.password=password --token.url=http://localhost:8081/token --server.port=8081
 
 To do some testings to the API, you use Postman and import Oauth2API.postman_collection.json that is resided in:
 oauth2api/src/main/resources/
+or
+you can use swagger UI in http://<host>:<port>/swagger-ui.html
 
 Before you access any of phone contact endpoints, you need to get access token from the /token endpoint.
 Put the access token as Bearer Authentication when accessing any phone contact endpoints.
